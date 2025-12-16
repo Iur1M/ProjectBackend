@@ -79,7 +79,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 builder.Services.AddScoped<IUserServices, UserServiceImpl>();
 builder.Services.AddScoped<ITokenService, TokenServiceImple>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
-builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IMovieService, ProjectBackend.Service.Implementations.MovieService>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
