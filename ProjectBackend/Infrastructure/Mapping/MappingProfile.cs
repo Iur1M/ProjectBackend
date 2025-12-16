@@ -11,6 +11,7 @@ namespace ProjectBackend.Infrastructure.Mapping
             CreateMap<ApplicationUser, UserResponse>();
             CreateMap<ApplicationUser, CurrentUserResponse>();
             CreateMap<UserRegisterRequest, ApplicationUser>();
+            CreateMap<Movie, MovieDto>();
         }
     }
 }

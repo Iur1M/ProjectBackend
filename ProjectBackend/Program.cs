@@ -1,3 +1,4 @@
+using AutoMapper;
 using DotnetAuth.Infrastructure.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,7 @@ using ProjectBackend.Exceptions;
 using ProjectBackend.Extensions;
 using ProjectBackend.Infrastructure.Mapping;
 using ProjectBackend.Service;
-using AutoMapper;
+using ProjectBackend.Service.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,6 +79,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 builder.Services.AddScoped<IUserServices, UserServiceImpl>();
 builder.Services.AddScoped<ITokenService, TokenServiceImple>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
@@ -103,5 +105,6 @@ app.UseExceptionHandler();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();
