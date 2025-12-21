@@ -10,7 +10,10 @@ namespace ProjectBackend.Infrastructure.Mapping
         {
             CreateMap<ApplicationUser, UserResponse>();
             CreateMap<ApplicationUser, CurrentUserResponse>();
-            CreateMap<UserRegisterRequest, ApplicationUser>();
+
+            CreateMap<UserRegisterRequest, ApplicationUser>()
+                .ForMember(dest => dest.UserName, opt => opt.Ignore());
+
             CreateMap<Movie, MovieDto>();
         }
     }

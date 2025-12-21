@@ -24,7 +24,7 @@ namespace ProjectBackend.Controllers
             string? sortBy,
             bool desc = false,
             int page = 1,
-            int pageSize = 10)
+            int pageSize = 50)
         {
             var result = await _movieService.GetMovies(
                 search,
