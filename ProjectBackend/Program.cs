@@ -68,7 +68,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection"));
 });
 
-// Adding Identity
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -83,7 +82,6 @@ builder.Services.AddScoped<IMovieService, ProjectBackend.Service.Implementations
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// Adding Jwt from extension method
 builder.Services.ConfigureIdentity();
 builder.Services.ConfiureJwt(builder.Configuration);
 builder.Services.ConfigureCors();
@@ -91,7 +89,6 @@ builder.Services.ConfigureCors();
 var app = builder.Build();
 app.UseCors("CorsPolicy");
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
